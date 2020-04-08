@@ -1,0 +1,13 @@
+# depslib dependency file v1.0
+1490112217 source:d:\utn\tecnicatura universitaria en programación\primer año\cuatrimestre 1\programación 1\laboratorio_1\exercise13_pilas1\pila.c
+	"pila.h"
+
+1490112217 d:\utn\tecnicatura universitaria en programación\primer año\cuatrimestre 1\programación 1\laboratorio_1\exercise13_pilas1\pila.h
+	<stdio.h>
+	<malloc.h>
+
+1586302008 source:d:\utn\tecnicatura universitaria en programación\primer año\cuatrimestre 1\programación 1\laboratorio_1\exercise13_pilas1\main.c
+	<stdio.h>
+	<stdlib.h>
+	"pila.h"
+
