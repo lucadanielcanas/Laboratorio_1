@@ -6,32 +6,32 @@
 
 int main()
 {
+    Pila DADA;
+    inicpila(&DADA);
+
     printf("Inicio de la funcion cargaDeElementos() \n");
 
-    cargaDeElementos();
+    cargaDeElementos(&DADA);
 
     printf("Final de la funcion cargaDeElementos() \n");
     return 0;
 }
 
 //Funcion que le permite al usuario cargar la Pila DADA.
-void cargaDeElementos()
+void cargaDeElementos(Pila * pCarga)
 {
-    Pila DADA;
-    inicpila(&DADA);
-
     char control;
 
 //Comienzo de la rutina de carga.
     do
     {
         printf("CARGANDO PILA DADA \n");
-        leer(&DADA);
+        leer(pCarga);
         printf("Desea continuar? s/n");
         fflush(stdin);
         scanf("%c", &control);
     }while(control == 's' || control == 'S');
 
     printf("PILA DADA");
-    mostrar(&DADA);
+    mostrar(pCarga);
 }
