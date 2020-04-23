@@ -1,13 +1,33 @@
 #include <stdio.h>
-#include <wchar.h>
 #include <locale.h>
 #include <stdlib.h>
 #include "pila.h"
 #include "functions.h"
 
+/*
+color de consola :
+0 = Negro
+1 = Azul
+2 = Verde
+3 = Aguamarina
+4 = Rojo
+5 = Purpura
+6 = Amarillo
+7 = Blanco
+8 = Gris
+9 = Azul claro
+
+color de texto:
+A = Verde claro
+B = Aguamarina claro
+C = Rojo claro
+D = Purpura claro
+E = Amarillo claro
+F = Blanco brillante
+*/
+
 int main()
 {
-    system("color 0C");
     setlocale(LC_ALL, "");
 
     Pila DADA, DADA2;
@@ -16,6 +36,8 @@ int main()
 
     do
     {
+        system("color 0C");
+
         printf("LISTA DE EJERCICIOS \n\n");
 
         printf("1- Hacer una función que permita ingresar varios elementos a una Pila, tantos como quiera el usuario. \n\n");
@@ -39,18 +61,28 @@ int main()
 
         case 1:
 
+            system("color 1F");
+
             inicpila(&DADA);
 
             cargaDeElementos(&DADA);
 
-            printf("PILA CARADA");
+            printf("PILA CARGADA");
             mostrar(&DADA);
 
             break;
 
         case 2:
+
+            system("color 8D");
+
             inicpila(&DADA);
             inicpila(&DADA2);
+
+            cargaDeElementos(&DADA);
+
+            printf("PILA DADA CARGADA");
+            mostrar(&DADA);
 
             pasarElementos(&DADA, &DADA2);
 
@@ -58,7 +90,10 @@ int main()
             mostrar(&DADA2);
 
             break;
+
         case 3:
+
+                system("color 2D");
 
                 inicpila(&DADA);
                 inicpila(&DADA2);
@@ -69,33 +104,150 @@ int main()
                 mostrar(&DADA2);
 
             break;
+
         case 4:
+
+            system("color 3E");
 
             inicpila(&DADA);
 
             int menor = 0;
+
+            cargaDeElementos(&DADA);
+            printf("PILA DADA CARGADA");
+            mostrar(&DADA);
 
             menor = menorElemento(&DADA);
 
             printf("El menor elemento de la pila es: %d\n", menor);
 
             break;
+
         case 5:
+
+            system("color 6C");
+
+            inicpila(&DADA);
+            inicpila(&DADA2);
+
+            cargaDeElementos(&DADA);
+
+            printf("PILA DADA CARGADA");
+            mostrar(&DADA);
+
+            ordenarPorSeleccion(&DADA, &DADA2);
+
+            printf("NUEVA PILA ORDENADA");
+            mostrar(&DADA2);
+
 
             break;
         case 6:
 
+            system("color 0A");
+
+            inicpila(&DADA);
+
+            int insertar = 8;
+
+            cargaDeElementos(&DADA);
+
+            printf("PILA DADA CARGADA");
+            mostrar(&DADA);
+
+            insertarEnOrden(&DADA, insertar);
+
+            printf("PILA DADA ORDENADA");
+            mostrar(&DADA);
+
             break;
         case 7:
+
+            system("color 05");
+
+            inicpila(&DADA);
+            inicpila(&DADA2);
+
+            cargaDeElementos(&DADA);
+
+            printf("PILA DADA CARGADA");
+            mostrar(&DADA);
+
+            ordenPorInsercion(&DADA, &DADA2);
+
+            printf("NUEVA PILA ORDENADA");
+            mostrar(&DADA2);
 
             break;
         case 8:
 
+            system("color 70");
+
+            inicpila(&DADA);
+            int suma = 0;
+
+            cargaDeElementos(&DADA);
+
+            printf("PILA DADA CARGADA");
+            mostrar(&DADA);
+
+            suma = sumaTopeYAnteUltimoCopia(DADA);
+            printf("La suma del tope de la pila + el ante ultimo valor de la pila es = %d \n", suma);
+
             break;
         case 9:
+                system("color 26");
+
+                int cantElementos = 0;
+                int sumElementos = 0;
+                float division = 0;
+
+                inicpila(&DADA);
+
+                cargaDeElementos(&DADA);
+
+                cantElementos = contarElementos(DADA);
+
+                printf("LA PILA DADA TIENE %d ELEMENTOS \n", cantElementos);
+
+                sumElementos = sumaElementos(DADA);
+
+                printf("LA SUMA DE LOS ELEMENTOS DE LA PILA DADA ES = %d\n", sumElementos);
+
+                division = dividirElementos(DADA);
+
+                printf("EL PROMEDIO ES = %2.f\n", division);
+
 
             break;
         case 10:
+
+            system("color 45");
+
+            int tranformacion = 0;
+
+            inicpila(&DADA);
+
+            cargaDeElementos(&DADA);
+
+            printf("PILA DADA CARGADA \n");
+            mostrar(&DADA);
+
+            tranformacion = transformarPila(DADA);
+
+            printf("PILA DADA TRANSFORMADA EN DECIMAL %d\n", tranformacion);
+
+            break;
+
+        case 11:
+            system("color 70");
+
+            inicpila(&DADA);
+
+            cargarPilaSinLeer(&DADA);
+
+            printf("DATOS DE LA PILA DADA");
+            mostrar(&DADA);
 
             break;
         };
