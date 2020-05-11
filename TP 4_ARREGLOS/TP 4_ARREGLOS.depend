@@ -1,5 +1,5 @@
 # depslib dependency file v1.0
-1588201819 source:d:\utn\tecnicatura universitaria en programación\primer año\cuatrimestre 1\programación 1\laboratorio_1\tp 4_arreglos\function.c
+1589237067 source:d:\utn\tecnicatura universitaria en programación\primer año\cuatrimestre 1\programación 1\laboratorio_1\tp 4_arreglos\function.c
 	<stdio.h>
 	<stdlib.h>
 	<string.h>
@@ -10,13 +10,13 @@
 	<stdio.h>
 	<malloc.h>
 
-1587861911 d:\utn\tecnicatura universitaria en programación\primer año\cuatrimestre 1\programación 1\laboratorio_1\tp 4_arreglos\function.h
+1589234280 d:\utn\tecnicatura universitaria en programación\primer año\cuatrimestre 1\programación 1\laboratorio_1\tp 4_arreglos\function.h
 	<stdio.h>
 
 1490112217 source:d:\utn\tecnicatura universitaria en programación\primer año\cuatrimestre 1\programación 1\laboratorio_1\tp 4_arreglos\pila.c
 	"pila.h"
 
-1587861870 source:d:\utn\tecnicatura universitaria en programación\primer año\cuatrimestre 1\programación 1\laboratorio_1\tp 4_arreglos\main.c
+1589239481 source:d:\utn\tecnicatura universitaria en programación\primer año\cuatrimestre 1\programación 1\laboratorio_1\tp 4_arreglos\main.c
 	<stdio.h>
 	<stdlib.h>
 	<locale.h>

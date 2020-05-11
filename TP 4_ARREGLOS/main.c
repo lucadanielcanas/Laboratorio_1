@@ -29,17 +29,27 @@
 int main()
 {
 
-    setlocale(LC_ALL, "");
+    setlocale(LC_ALL, ""); //funcion para permitir caracteres especiales.
 
     int ejercicio = 0;
-    int cantidadEmpleadosInt = 0;
-    float cantidadEmpleadosFloat = 0;
     char control;
-    const int MAXEMPLEADOS = 100;
 
+    int cantidadEmpleados = 0;
+    int cantidadCaracteres = 0;
+    int cantidadCaracteres2 = 0;
+    int cantidadCaracteres3 = 0;
+    int dimension = 0; //ESTA VARIABLE ES USADA SOLO EN EL EJERCICIO 12.
+    const int MAXEMPLEADOS = 5;
+    char letra;
+    int opt;
+    char controlSubMenu;
+
+    //Arrays
     int idEmpleadosInt[MAXEMPLEADOS];
-    float idEmpleadosFloat[100];
-
+    float idEmpleadosFloat[5];
+    char idEmpleadosChar[100];
+    char idEmpleadosChar2[100];
+    char idEmpleadosChar3[100];
 
     //int * idEmpleados = malloc (sizeof(int)*100);
 
@@ -64,7 +74,6 @@ int main()
         printf("10- Realizar una función que invierta los elementos de un arreglo. \n\n");
         printf("11- Ordenar un arreglo según los siguientes métodos: a) Seleccion b) Insercion \n\n");
         printf("12- Dados dos arreglos ordenados alfabéticamente, crear un tercer arreglo con los elementos de los dos primeros intercalados, de manera que quede un arreglo también ordenado alfabéticamente. \n\n");
-        printf("13- EXTRA! Formulario con arreglos. \n\n");
 
         printf("QUE EJERCICIO DESEA REALIZAR? \n");
         scanf("%d", &ejercicio);
@@ -77,110 +86,209 @@ int main()
 
                 system("color 01");
 
-                cantidadEmpleadosInt = cargarArregloInt(idEmpleadosInt, MAXEMPLEADOS);
+                cantidadEmpleados = cargarArregloInt(idEmpleadosInt, MAXEMPLEADOS);
 
-                printf("Empleados cargados: %d \n", cantidadEmpleadosInt);
+                printf("Empleados cargados: %d \n", cantidadEmpleados);
 
                 break;
+
             case 2:
 
                 system("color 02");
 
-                cantidadEmpleadosInt = cargarArregloInt(idEmpleadosInt, MAXEMPLEADOS);
+                cantidadEmpleados = cargarArregloInt(idEmpleadosInt, MAXEMPLEADOS);
 
-                printf("Empleados cargados: %d \n", cantidadEmpleadosInt);
+                printf("Empleados cargados: %d \n", cantidadEmpleados);
 
-                mostrarArregloInt(idEmpleadosInt, cantidadEmpleadosInt);
+                mostrarArregloInt(idEmpleadosInt, cantidadEmpleados);
 
                 break;
+
             case 3:
 
                 system("color 03");
 
                 int totalSuma = 0;
 
-                cantidadEmpleadosInt = cargarArregloInt(idEmpleadosInt, MAXEMPLEADOS);
+                cantidadEmpleados = cargarArregloInt(idEmpleadosInt, MAXEMPLEADOS);
 
-                printf("Empleados cargados: %d \n", cantidadEmpleadosInt);
+                printf("Empleados cargados: %d \n", cantidadEmpleados);
 
-                mostrarArregloInt(idEmpleadosInt, cantidadEmpleadosInt);
+                mostrarArregloInt(idEmpleadosInt, cantidadEmpleados);
 
-                totalSuma = sumarElementosValidos(idEmpleadosInt, cantidadEmpleadosInt);
+                totalSuma = sumarElementosValidos(idEmpleadosInt, cantidadEmpleados);
 
                 printf("La suma de los elementos VALIDOS es = %d \n", totalSuma);
 
                 break;
+
             case 4:
 
                 system("color 14");
 
                 inicpila(&DADA);
-                int datosPila = 0;
 
-                cantidadEmpleadosInt = cargarArregloInt(idEmpleadosInt, MAXEMPLEADOS);
+                cargarArregloInt(idEmpleadosInt, 5);
 
-                printf("Empleados cargados: %d \n", cantidadEmpleadosInt);
+                pasarArregloAPila(idEmpleadosInt, 5, &DADA);
 
-                mostrarArregloInt(idEmpleadosInt, cantidadEmpleadosInt);
-
-                datosPila = pasarArregloAPila(idEmpleadosInt, cantidadEmpleadosInt, &DADA);
-
-                printf("La pila DADA tiene %d elementos. \n", datosPila);
+                mostrar(&DADA);
 
                 break;
+
             case 5:
-                /*
+
                 system("color 15");
 
-                cantidadEmpleadosFloat = cargarArregloFloat(idEmpleadosFloat, 100.0);
+                cantidadEmpleados = cargarArregloFloat(idEmpleadosFloat, 5);
 
-                printf("Cantidad de empleados cargados: %2.f \n", cantidadEmpleadosFloat);
-                */
+                mostrarArregloFloat(idEmpleadosFloat, cantidadEmpleados);
+
+                sumarElementosValidosF(idEmpleadosFloat, cantidadEmpleados);
 
                 break;
+
             case 6:
 
                 system("color 16");
 
+                cantidadEmpleados = cargarArregloChar(idEmpleadosChar, 100);
+
+                mostrarArregloChar(idEmpleadosChar, cantidadEmpleados);
+
+                buscarArregloChar(idEmpleadosChar, cantidadEmpleados);
+
                 break;
+
             case 7:
 
                 system("color 27");
 
+                cantidadEmpleados = cargarArregloChar(idEmpleadosChar, 100);
+
+                mostrarArregloChar(idEmpleadosChar, cantidadEmpleados);
+
+                printf("\nQue letra desea ordenar?\n");
+                fflush(stdin);
+                scanf("%c", &letra);
+
+                cantidadEmpleados = insertarEnOrdenChar(idEmpleadosChar, cantidadEmpleados, letra);
+                mostrarArregloChar(idEmpleadosChar, cantidadEmpleados);
+                cantidadCaracteres = ordenarArregloChar(idEmpleadosChar, cantidadEmpleados);
+
                 break;
+
             case 8:
 
                 system("color 28");
 
+                cantidadEmpleados = cargarArregloChar(idEmpleadosChar, 100);
+                mostrarArregloChar(idEmpleadosChar, cantidadEmpleados);
+
+                letra = obtenerMaximoCaracter(idEmpleadosChar, cantidadEmpleados);
+
+                printf("\nEl maximo caracter del arreglo es: %c\n", letra);
+
                 break;
+
             case 9:
 
                 system("color 29");
 
+                cantidadEmpleados = cargarArregloInt(idEmpleadosInt, MAXEMPLEADOS);
+                mostrarArregloInt(idEmpleadosInt, cantidadEmpleados);
+
+                arregloCapicua(idEmpleadosInt, cantidadEmpleados);
+
                 break;
+
             case 10:
 
                 system("color 3A");
 
+                cantidadEmpleados = cargarArregloInt(idEmpleadosInt, MAXEMPLEADOS);
+                mostrarArregloInt(idEmpleadosInt, cantidadEmpleados);
+
+                invertirArreglo(idEmpleadosInt, cantidadEmpleados);
+
+                mostrarArregloInt(idEmpleadosInt, cantidadEmpleados);
+
+
                 break;
+
             case 11:
 
                 system("color 3B");
 
+                do
+                {
+                    printf("1. Ordenacion por selección.");
+                    printf("\n2. Ordenacion por inserción.\n");
+                    printf("\nQue ejercicio desea realizar?: ");
+                    scanf("%d", &opt);
+
+                    system("cls");
+
+                    switch(opt)
+                    {
+                        case 1:
+                            system("cls");
+
+                            cantidadEmpleados = cargarArregloInt(idEmpleadosInt, MAXEMPLEADOS);
+                            mostrarArregloInt(idEmpleadosInt, cantidadEmpleados);
+
+                            ordenacionSeleccion(idEmpleadosInt, cantidadEmpleados);
+                            mostrarArregloInt(idEmpleadosInt, cantidadEmpleados);
+
+                            break;
+
+                        case 2:
+                            system("cls");
+
+                            cantidadEmpleados = cargarArregloInt(idEmpleadosInt, MAXEMPLEADOS);
+                            mostrarArregloInt(idEmpleadosInt, cantidadEmpleados);
+
+                            ordenacionInsercion(idEmpleadosInt, cantidadEmpleados);
+                            mostrarArregloInt(idEmpleadosInt, cantidadEmpleados);
+
+                            break;
+                    };
+
+                    printf("\nDesea salir del submenu?s/n");
+                    fflush(stdin);
+                    scanf("%c", &controlSubMenu);
+                    system("cls");
+
+                }while(controlSubMenu == 'N' || controlSubMenu == 'n');
+
                 break;
+
             case 12:
 
-                system("color 3C");
+                system("color 0C");
 
-                break;
-            case 13:
+                cantidadCaracteres = cargarArregloChar(idEmpleadosChar, 100);
 
-                system("color 4D");
+                printf("Arreglo 1 cargado: \n");
+                mostrarArregloChar(idEmpleadosChar, cantidadCaracteres);
+
+                cantidadCaracteres2 = cargarArregloChar(idEmpleadosChar2, 100);
+
+                printf("Arreglo 2 cargado: \n");
+                mostrarArregloChar(idEmpleadosChar2, cantidadCaracteres2);
+
+                dimension = (cantidadCaracteres + cantidadCaracteres2);
+
+                cantidadCaracteres3 = tercerArregloOrdenado(idEmpleadosChar, cantidadCaracteres, idEmpleadosChar2, cantidadCaracteres2, idEmpleadosChar3, dimension);
+
+                printf("\nArreglo 3 ordenado alfabeticamente con los elementos del arreglo 1 y arreglo 2: \n");
+                mostrarArregloChar(idEmpleadosChar3, cantidadCaracteres3);
+
 
                 break;
         };
 
-        printf("\n Desea ejecutar otro ejercicio? s/n");
+        printf("\nDesea ejecutar otro ejercicio? s/n");
         fflush(stdin);
         scanf("%c", &control);
         system("cls");
